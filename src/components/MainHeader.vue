@@ -10,13 +10,15 @@
 			{{ time }}
 		</div>
 		<transition name="slide">
-			<base-menu v-show="isMenu" />
+			<base-menu v-show="isMenu" @click="isMenu = !isMenu" />
 		</transition>
-		<div
-			@click="isMenu = !isMenu"
-			class="header__wall"
-			v-show="isMenu"
-		></div>
+		<transition name="wall">
+			<div
+				@click="isMenu = !isMenu"
+				class="header__wall"
+				v-show="isMenu"
+			/>
+		</transition>
 	</div>
 </template>
 
@@ -95,7 +97,6 @@ export default {
 		}
 	}
 	&__wall {
-		transition: all 0.6s;
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -118,5 +119,19 @@ export default {
 }
 .slide-leave {
 	transform: translateX(0px);
+}
+.wall-enter {
+	background-color: transparent !important;
+}
+.wall-enter-active {
+	background-color: #000000c2;
+	transition: background-color 0.6s;
+}
+.wall-leave {
+	background-color: #000000c2;
+}
+.wall-leave-active {
+	background-color: transparent;
+	transition: background-color 0.6s;
 }
 </style>

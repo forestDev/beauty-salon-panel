@@ -1,7 +1,7 @@
 <template>
 	<div id="app" class="h100">
 		<div class="container background-app">
-			<main-header />
+			<main-header v-if="$route.name != 'loginPage'" />
 			<router-view />
 		</div>
 	</div>

@@ -4,6 +4,7 @@
 			class="menu__btn"
 			isMenu
 			icon-class="menu__btn-icon fas fa-home"
+			@click="$router.push({ name: 'mainPage' }), $emit('click')"
 			>Strona<br />
 			główna</base-button
 		>
@@ -17,6 +18,7 @@
 			class="menu__btn"
 			isMenu
 			icon-class="menu__btn-icon fas fa-dollar-sign"
+			@click="$router.push('/przychody'), $emit('click')"
 			>Finanse</base-button
 		>
 		<base-button
@@ -29,6 +31,7 @@
 			class="menu__btn"
 			isMenu
 			icon-class="menu__btn-icon fas fa-align-left"
+			@click="$router.push('/usługi'), $emit('click')"
 			>Zabiegi</base-button
 		>
 		<base-button
@@ -41,6 +44,7 @@
 			class="menu__btn"
 			isMenu
 			icon-class="menu__btn-icon fas fa-power-off"
+			@click="$router.push('/logowanie'), $emit('click')"
 			>Wyloguj</base-button
 		>
 	</div>
