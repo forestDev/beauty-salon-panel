@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'cinzel';
+	src: url('./Cinzel-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'mukta-light';
+	src: url('./Mukta-ExtraLight.ttf');
+}
+
+@font-face {
+	font-family: 'mukta-bold';
+	src: url('./Mukta-SemiBold.ttf');
+}

@@ -1,0 +1,18 @@
+html {
+    height: 100%;
+}
+body {
+    background-color: $black;
+    color: $white;
+    font-family: 'cinzel', serif;
+    margin: 0;
+    height: 100%;
+}
+
+h1 {
+    font-size: $font-size-large;
+}
+
+h2 {
+    font-size: $font-size-medium;
+}

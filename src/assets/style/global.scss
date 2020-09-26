@@ -1,0 +1,315 @@
+.u-align {
+    &--center {
+        align-items: center;
+    }
+
+    &--start {
+        align-items: flex-start;
+    }
+
+    &--end {
+        align-items: flex-end;
+    }
+}
+.u-flex {
+    display: flex;
+}
+
+.u-patb20 {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.h100 {
+    height: 100%;
+}
+.container {
+    //kontener objekty
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    width: 100%;
+    max-width: 1140px;
+    box-sizing: border-box;
+}
+// 100% szerokości
+.container-fluid {
+    width: 100%;
+    padding-right: $gutter;
+    padding-left: $gutter;
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; // zawijanie
+    margin-left: -$gutter; //rekompensacja padingów kolumn
+    margin-right: -$gutter;
+}
+
+.col {
+    //Mobile
+    &-1 {
+        flex: 0 0 8.333333%;
+        max-width: 8.333333%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-2 {
+        flex: 0 0 16.666666%;
+        max-width: 16.666666%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-5 {
+        flex: 0 0 41.666666%;
+        max-width: 41.666666%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-7 {
+        flex: 0 0 58.333333%;
+        max-width: 58.333333%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-8 {
+        flex: 0 0 66.666666%;
+        max-width: 66.666666%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-10 {
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-11 {
+        flex: 0 0 91.666666%;
+        max-width: 91.666666%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+
+    &-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        @include col-padding;
+        box-sizing: border-box;
+    }
+}
+//device-medium
+
+@include device-medium {
+    .col {
+        &-md-1 {
+            flex: 0 0 8.333333%;
+            max-width: 8.333333%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-2 {
+            flex: 0 0 16.666666%;
+            max-width: 16.666666%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-4 {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-5 {
+            flex: 0 0 41.666666%;
+            max-width: 41.666666%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-7 {
+            flex: 0 0 58.333333%;
+            max-width: 58.333333%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-8 {
+            flex: 0 0 66.666666%;
+            max-width: 66.666666%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-9 {
+            flex: 0 0 75%;
+            max-width: 75%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-10 {
+            flex: 0 0 83.333333%;
+            max-width: 83.333333%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-11 {
+            flex: 0 0 91.666666%;
+            max-width: 91.666666%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-md-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+    }
+}
+
+//Desktop
+@include device-large {
+    .col {
+        &-lg-1 {
+            flex: 0 0 8.333333%;
+            max-width: 8.333333%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-2 {
+            flex: 0 0 16.666666%;
+            max-width: 16.666666%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-4 {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-5 {
+            flex: 0 0 41.666666%;
+            max-width: 41.666666%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-7 {
+            flex: 0 0 58.333333%;
+            max-width: 58.333333%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-8 {
+            flex: 0 0 66.666666%;
+            max-width: 66.666666%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-9 {
+            flex: 0 0 75%;
+            max-width: 75%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-10 {
+            flex: 0 0 83.333333%;
+            max-width: 83.333333%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-11 {
+            flex: 0 0 91.666666%;
+            max-width: 91.666666%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+
+        &-lg-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            @include col-padding;
+            box-sizing: border-box;
+        }
+    }
+}

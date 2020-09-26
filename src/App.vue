@@ -1,32 +1,27 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+	<div id="app" class="h100">
+		<div class="container background-app">
+			<main-header />
+			<router-view />
+		</div>
+	</div>
 </template>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import MainHeader from '@/components/MainHeader'
+export default {
+	components: {
+		MainHeader,
+	},
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+</script>
+<style lang="scss" scoped>
+.background-app {
+	background: $black;
+	border: 1px solid rgb(90, 90, 90);
+	border-top: none;
+	border-bottom: none;
+	box-shadow: 0px 0px 25px 3px #3d4346;
+	overflow-x: hidden;
+	height: 100%;
 }
 </style>
