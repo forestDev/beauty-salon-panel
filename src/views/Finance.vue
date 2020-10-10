@@ -4,16 +4,10 @@
 		<div class="container relative trans" id="content-finance">
 			<div class="row options">
 				<router-link
-					to="/przychody"
+					to="/finanse"
 					active-class="options__button--active"
 					class="col-12 col-md-4 options__button"
-					>Przychody</router-link
-				>
-				<router-link
-					to="/wydatki"
-					active-class="options__button--active"
-					class="col-12 col-md-4 options__button"
-					>Wydatki</router-link
+					>Finanse</router-link
 				>
 				<router-link
 					to="/podsumowanie"
@@ -35,7 +29,7 @@ export default {}
 .options {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 
 	&__button {
 		display: flex;
@@ -55,12 +49,12 @@ export default {}
 		text-transform: uppercase;
 		background: #2b3135;
 		font-family: 'mukta-light';
+		transition: ease-in-out 0.3s;
 		&--active {
 			background-color: lighten($color: #000000, $amount: 50%);
 		}
 		&:hover {
 			background: black;
-			transition: ease-in-out 0.75s;
 			border: 1px solid #353e44;
 		}
 	}

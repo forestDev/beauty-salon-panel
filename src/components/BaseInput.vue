@@ -17,7 +17,7 @@ export default {
 		},
 		placeholder: {
 			type: String,
-			required: true,
+			default: '',
 		},
 		inputType: {
 			type: String,

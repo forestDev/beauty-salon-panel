@@ -1,7 +1,7 @@
 <template>
 	<div class="button" :class="classes" @click="$emit('click')">
 		<slot />
-		<i :class="iconClass" />
+		<i class="button__icon" :class="iconClass" />
 	</div>
 </template>
 
@@ -20,12 +20,22 @@ export default {
 			type: String,
 			default: '',
 		},
+		isSecondary: {
+			type: Boolean,
+			default: false,
+		},
+		isFinance: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	computed: {
 		classes() {
 			return {
 				'button--sign-in': this.isSignIn,
 				'button--menu': this.isMenu,
+				'button--secondary': this.isSecondary,
+				'button--finance': this.isFinance,
 				// others classes.
 			}
 		},
@@ -51,7 +61,9 @@ export default {
 	color: $black;
 	user-select: none;
 	box-sizing: border-box;
-
+	&__icon {
+		margin-left: 6px;
+	}
 	&--sign-in {
 		background-color: $green;
 		color: $white;
@@ -75,6 +87,34 @@ export default {
 		&:hover {
 			opacity: 0.8;
 			box-shadow: 0px 0px 10px #7b7b7b;
+		}
+	}
+	&--finance {
+		border-radius: 16px;
+		background-color: transparent;
+		height: 30px;
+		font-size: 14px;
+		border: 1px solid $white;
+		color: $white;
+		&:hover {
+			box-shadow: 0 0 40px #002699 inset;
+		}
+	}
+	&--secondary {
+		height: 40px;
+		width: 100%;
+		letter-spacing: 2px;
+		font-size: 18px;
+		color: $white;
+		border-radius: 8px;
+		border: 1px solid white;
+		text-align: center;
+		transition: box-shadow 150ms ease-in-out, color 150ms ease-in-out;
+		background-color: $black;
+		cursor: pointer;
+		text-transform: uppercase;
+		&:hover {
+			box-shadow: 0 0 40px #002699 inset;
 		}
 	}
 }

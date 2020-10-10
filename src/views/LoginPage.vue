@@ -8,6 +8,7 @@
 						<img
 							src="@/assets/images/M_logo_trendy_kosmetyka.png"
 							alt="logo"
+							class="login-form__img-img"
 						/>
 					</div>
 					<div class="login-form__inputs col-12 col-md-6">
@@ -94,6 +95,10 @@ export default {
 		&__image {
 			display: flex;
 			object-fit: cover;
+			&-img {
+				width: 100%;
+				height: auto;
+			}
 		}
 		&__button {
 			margin: 0 15px;

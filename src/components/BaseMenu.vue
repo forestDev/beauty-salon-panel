@@ -4,7 +4,7 @@
 			class="menu__btn"
 			isMenu
 			icon-class="menu__btn-icon fas fa-home"
-			@click="$router.push({ name: 'mainPage' }), $emit('click')"
+			@click="$router.push('/'), $emit('click')"
 			>Strona<br />
 			główna</base-button
 		>
@@ -18,7 +18,7 @@
 			class="menu__btn"
 			isMenu
 			icon-class="menu__btn-icon fas fa-dollar-sign"
-			@click="$router.push('/przychody'), $emit('click')"
+			@click="$router.push('/finanse'), $emit('click')"
 			>Finanse</base-button
 		>
 		<base-button

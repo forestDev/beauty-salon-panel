@@ -1,7 +1,7 @@
 import LoginPage from '@/views/LoginPage'
 import MainPage from '@/views/MainPage'
 import Finance from '@/views/Finance'
-import FinanceEarnings from '@/components/FinanceEarnings'
+import FinanceContent from '@/components/FinanceContent'
 import FinanceExpenses from '@/components/FinanceExpenses'
 import FinanceSummary from '@/components/FinanceSummary'
 import Treatments from '@/views/Treatments'
@@ -20,19 +20,12 @@ const routes = [
 	{
 		path: '/finance',
 		component: Finance,
-		alias: '/finanse',
 		children: [
 			{
-				path: '/earnings',
-				name: 'financeEarnings',
-				component: FinanceEarnings,
-				alias: '/przychody',
-			},
-			{
-				path: '/expenses',
-				name: 'financeExpenses',
-				component: FinanceExpenses,
-				alias: '/wydatki',
+				path: '/content',
+				name: 'financeContent',
+				component: FinanceContent,
+				alias: '/finanse',
 			},
 			{
 				path: '/summary',
