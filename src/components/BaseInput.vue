@@ -1,6 +1,7 @@
 <template>
 	<input
 		class="input"
+		:class="{ 'input--error': error }"
 		:type="inputType"
 		:placeholder="placeholder"
 		:value="value"
@@ -22,6 +23,10 @@ export default {
 		inputType: {
 			type: String,
 			default: 'text',
+		},
+		error: {
+			type: Boolean,
+			default: false,
 		},
 	},
 }
@@ -50,6 +55,9 @@ export default {
 
 	&:-ms-placeholder {
 		color: $black;
+	}
+	&--error {
+		border: 2px solid $red;
 	}
 }
 </style>

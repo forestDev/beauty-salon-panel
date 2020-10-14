@@ -9,10 +9,12 @@
 				v-for="cost in costs"
 				:key="cost.id"
 				:title="cost.title"
-				:prize="cost.price"
+				:prize="cost.prize"
 				:date="cost.date"
 				:showButtons="isEditing"
-				@edit="cost = $event"
+				:id="cost.id"
+				@edit="editHandler($event)"
+				@delete="deleteHandler($event)"
 			/>
 
 			<div class="row finance__summary">
@@ -32,6 +34,39 @@
 						class="controls__edit"
 						>Edytuj</base-button
 					>
+				</div>
+			</div>
+		</div>
+		<div class="popup">
+			<div class="container">
+				<div class="row popup-finance">
+					<div class="col-6 finance-box">
+						<div class="row">
+							<div class="col-12">
+								<h4>Wprowadz wydatet/przychód</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6 finance-box__prize">Kwota</div>
+							<div class="col-6 finance-box__input">
+								<input type="text" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6 finance-box__date">data</div>
+							<div class="col-6 finance-box__input">
+								<input type="text" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6 finance-box__description">
+								opis
+							</div>
+							<div class="col-6 finance-box__input">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -56,29 +91,40 @@ export default {
 				{
 					id: 1,
 					title: 'Odsysanie tłuszczu',
-					data: moment(),
-					price: 15.99,
+					date: moment(),
+					prize: 15.99,
 				},
 				{
 					id: 2,
 					title: 'Powiększanie penisa',
-					data: moment(),
-					price: 105.99,
+					date: moment(),
+					prize: 105.99,
 				},
 				{
 					id: 3,
 					title: 'Zakup kosmetyków',
-					data: moment(),
-					price: -25,
+					date: moment(),
+					prize: -25,
 				},
 				{
 					id: 4,
 					title: 'Malowanie buzi',
-					data: moment(),
-					price: 5,
+					date: moment(),
+					prize: 5,
 				},
 			],
 		}
+	},
+	methods: {
+		editHandler(event) {
+			let id = this.costs.findIndex((cost) => cost.id === event.id)
+			this.costs.splice(id, 1)
+			this.costs.push(event)
+		},
+		deleteHandler(id) {
+			let idx = this.costs.findIndex((cost) => cost.id === id)
+			this.costs.splice(idx, 1)
+		},
 	},
 }
 </script>
@@ -181,5 +227,24 @@ export default {
 			text-align: right;
 		}
 	}
+}
+.popup {
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	display: flex;
+}
+.popup-finance {
+	height: 100%;
+	justify-content: center;
+	align-content: center;
+}
+.finance-box {
+	height: 50%;
+	background-color: grey;
+	border-radius: 16px;
+	padding: 24px;
 }
 </style>
