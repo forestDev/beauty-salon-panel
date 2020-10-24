@@ -16,8 +16,8 @@
 							<div class="col-12">
 								<!-- INPUT LOGIN -->
 								<base-input
-									placeholder="E-mail"
-									v-model="email"
+									placeholder="Nazwa użytkownika	"
+									v-model="username"
 								/>
 							</div>
 						</div>
@@ -42,6 +42,13 @@
 						>
 							Zaloguj się
 						</base-button>
+						<base-button
+							class="login-form__button"
+							isSignIn
+							@click="logout()"
+						>
+							Wyloguj się
+						</base-button>
 					</div>
 				</div>
 			</div>
@@ -61,19 +68,23 @@ export default {
 	},
 	data() {
 		return {
-			email: '',
+			username: '',
 			password: '',
+			token: '',
 		}
 	},
 	methods: {
-		...mapActions([LOGIN_USER]),
+		...mapActions([LOGIN_USER, LOGOUT_USER]),
 
-		loginUser() {
-			this.LOGIN_USER({
-				email: this.email,
+		async loginUser() {
+			let token = await this.LOGIN_USER({
+				username: this.username,
 				password: this.password,
 			})
-			this.$router.push({ name: 'mainPage' })
+			this.token = token
+		},
+		logout() {
+			this.LOGOUT_USER(this.token)
 		},
 	},
 }
