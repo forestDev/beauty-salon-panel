@@ -42,13 +42,6 @@
 						>
 							Zaloguj się
 						</base-button>
-						<base-button
-							class="login-form__button"
-							isSignIn
-							@click="logout()"
-						>
-							Wyloguj się
-						</base-button>
 					</div>
 				</div>
 			</div>
@@ -81,7 +74,9 @@ export default {
 				username: this.username,
 				password: this.password,
 			})
+			// @todo
 			this.token = token
+			this.$router.push({ name: 'mainPage' })
 		},
 		logout() {
 			this.LOGOUT_USER(this.token)

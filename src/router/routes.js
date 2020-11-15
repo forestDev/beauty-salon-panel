@@ -13,8 +13,8 @@ const routes = [
 		alias: '/logowanie',
 	},
 	{
-		path: '/',
 		name: 'mainPage',
+		path: '/',
 		component: MainPage,
 	},
 	{

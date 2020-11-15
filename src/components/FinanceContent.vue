@@ -25,7 +25,9 @@
 		<div class="col-12">
 			<div class="row controls">
 				<div class="col-md-3 col-12">
-					<base-button is-secondary>Dodaj</base-button>
+					<base-button is-secondary @click="isAddFinance = true"
+						>Dodaj</base-button
+					>
 				</div>
 				<div class="col-md-3 col-12">
 					<base-button
@@ -37,34 +39,47 @@
 				</div>
 			</div>
 		</div>
-		<div class="popup">
-			<div class="container">
-				<div class="row popup-finance">
-					<div class="col-6 finance-box">
-						<div class="row">
-							<div class="col-12">
-								<h4>Wprowadz wydatet/przychód</h4>
-							</div>
+		<div class="popup" v-if="isAddFinance">
+			<div class="popup-finance">
+				<div class="finance-box">
+					<div class="row">
+						<div class="col-12">
+							<h4>Wprowadz wydatet/przychód</h4>
 						</div>
-						<div class="row">
-							<div class="col-6 finance-box__prize">Kwota</div>
-							<div class="col-6 finance-box__input">
-								<input type="text" />
-							</div>
+					</div>
+					<div class="row mat16">
+						<div class="col-4 finance-box__prize">Kwota</div>
+						<div class="col-8 finance-box__input">
+							<input type="text" />
 						</div>
-						<div class="row">
-							<div class="col-6 finance-box__date">data</div>
-							<div class="col-6 finance-box__input">
-								<input type="text" />
-							</div>
+					</div>
+					<div class="row mat16">
+						<div class="col-4 finance-box__date">data</div>
+						<div class="col-8 finance-box__input">
+							<input type="date" />
 						</div>
-						<div class="row">
-							<div class="col-6 finance-box__description">
-								opis
-							</div>
-							<div class="col-6 finance-box__input">
-								<input type="text" />
-							</div>
+					</div>
+					<div class="row mat16">
+						<div class="col-4 finance-box__description">opis</div>
+						<div class="col-8 finance-box__input">
+							<textarea
+								name=""
+								id=""
+								cols="30"
+								rows="4"
+							></textarea>
+						</div>
+					</div>
+					<div class="row mat16">
+						<div class="col-6">
+							<base-button @click="isAddFinance = false"
+								>Anuluj
+							</base-button>
+						</div>
+						<div class="col-6">
+							<base-button @click="isAddFinance = false"
+								>Potwierdz
+							</base-button>
 						</div>
 					</div>
 				</div>
@@ -86,6 +101,7 @@ export default {
 	data() {
 		return {
 			isEditing: false,
+			isAddFinance: false,
 			// from api.
 			costs: [
 				{
@@ -130,6 +146,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.mat16 {
+	margin-top: 16px;
+}
 .title {
 	font-size: 24px;
 	padding: 20px 0;
@@ -233,18 +252,32 @@ export default {
 	right: 0;
 	top: 0;
 	bottom: 0;
-	position: absolute;
+	position: fixed;
 	display: flex;
+	background-color: #0000009e;
 }
 .popup-finance {
-	height: 100%;
-	justify-content: center;
-	align-content: center;
+	top: 50%;
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 320px;
+	@media (min-width: 460px) {
+		max-width: unset;
+	}
 }
 .finance-box {
 	height: 50%;
 	background-color: grey;
 	border-radius: 16px;
 	padding: 24px;
+}
+
+.finance-box__input {
+	display: flex;
+}
+input {
+	overflow: hidden;
+	width: 100%;
 }
 </style>
