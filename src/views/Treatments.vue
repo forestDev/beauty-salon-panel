@@ -16,7 +16,7 @@
 				/>
 			</div>
 		</div>
-		<div class="row treatments__controls">
+		<div class="row treatments">
 			<div class="col-md-4 col-12">
 				<base-button is-secondary>Dodaj</base-button>
 			</div>

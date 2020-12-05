@@ -1,6 +1,7 @@
 import LoginPage from '@/views/LoginPage'
 import MainPage from '@/views/MainPage'
 import Finance from '@/views/Finance'
+import Clients from '@/views/Clients'
 import FinanceContent from '@/components/FinanceContent'
 import FinanceExpenses from '@/components/FinanceExpenses'
 import FinanceSummary from '@/components/FinanceSummary'
@@ -42,11 +43,23 @@ const routes = [
 		],
 	},
 	{
+		name: 'mainPage',
+		path: '/',
+		component: MainPage,
+	},
+	{
 		path: '/treatments',
 		name: 'treatments',
 		component: Treatments,
 		alias: '/usługi',
 	},
+	{
+		path: '/clients',
+		name: 'Clients',
+		component: Clients,
+		alias: '/baza klientów'
+	}
+	
 ]
 
 export default routes
