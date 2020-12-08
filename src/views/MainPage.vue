@@ -17,7 +17,7 @@
 					</div>
 					<div class="col-12 col-md-12 stat-box__info">
 						<i class="fas fa-check stat-box__info-icon"></i>
-						<p>Jakieś przykładowe dane o klientach(?)</p>
+						<p>Jakieś przykładowe dane o klientach</p>
 					</div>
 				</statistic-box>
 			</div>
