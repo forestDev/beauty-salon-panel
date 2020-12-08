@@ -1,7 +1,10 @@
 <template>
 	<input
 		class="input"
-		:class="{ 'input--error': error }"
+		:class="{
+			'input--error': error,
+			'input--shadow': shadow,
+		}"
 		:type="inputType"
 		:placeholder="placeholder"
 		:value="value"
@@ -28,6 +31,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		shadow: {
+			type: Boolean,
+			default: false,
+		},
 	},
 }
 </script>
@@ -44,6 +51,7 @@ export default {
 	height: 48px;
 	width: 100%;
 	padding-left: 15px;
+	padding-right: 15px;
 	&::placeholder {
 		color: $black;
 	}
@@ -57,7 +65,32 @@ export default {
 		color: $black;
 	}
 	&--error {
-		border: 2px solid $red;
+		border-radius: 6px !important;
+		border: 2px solid $red !important;
+	}
+	&--shadow {
+		border: 0;
+		border-radius: 0;
+		outline: none;
+		background-color: #161616;
+		color: $white;
+		border-bottom: 1px solid #494949;
+		resize: none;
+		&--error {
+			border-bottom: 1px solid $red;
+		}
+		&::placeholder {
+			color: $white;
+		}
+
+		&::-moz-placeholder {
+			color: $white;
+			opacity: 0.25;
+		}
+
+		&:-ms-placeholder {
+			color: $white;
+		}
 	}
 }
 </style>

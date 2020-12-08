@@ -1,1 +1,3 @@
-export default {};
+export default {
+    isModal: (state) => state.isModal
+};

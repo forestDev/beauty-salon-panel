@@ -5,6 +5,7 @@ import store from './store'
 import '@/assets/style/normalize.css'
 import '@/assets/fonts/all.min.css'
 import '@/assets/fonts/fonts.css'
+import '@/plugins'
 Vue.config.productionTip = false
 
 new Vue({

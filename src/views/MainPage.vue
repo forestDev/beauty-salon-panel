@@ -25,26 +25,83 @@
 				<statistic-box title="Ostatnie finanse">
 					<div class="col-12 col-md-12">
 						<div class="stat-box__money-border">
-							<p class="stat-box__money--negative">
-								<b>-20 zł</b> zakup kosmetyków
-							</p>
-							<p class="stat-box__money--positive">
-								<b>+15 zł</b> strzyżenie męskie
-							</p>
-							<p class="stat-box__money--negative">
-								<b>-100 zł</b> zakup nowej suszarki
-							</p>
-							<p class="stat-box__money--positive">
-								<b>+40 zł </b> paznokcie
-							</p>
+							<div class="stat-box__money--negative">
+								<div class="row stat-box__money-row">
+									<div
+										class="col-lg-3 col-12 stat-box__money-value"
+									>
+										- 20 zł
+									</div>
+									<div
+										class="col-lg-9 col-12 stat-box__money-description"
+									>
+										zakup kosmetyków
+									</div>
+								</div>
+							</div>
+							<div class="stat-box__money--positive">
+								<div class="row stat-box__money-row">
+									<div
+										class="col-lg-3 col-12 stat-box__money-value"
+									>
+										+ 10 zł
+									</div>
+									<div
+										class="col-lg-9 col-12 stat-box__money-description"
+									>
+										strzyżenie męskie
+									</div>
+								</div>
+							</div>
+							<div class="stat-box__money--negative">
+								<div class="row stat-box__money-row">
+									<div
+										class="col-lg-3 col-12 stat-box__money-value"
+									>
+										- 200 zł
+									</div>
+									<div
+										class="col-lg-9 col-12 stat-box__money-description"
+									>
+										Zakup nowej suszarki
+									</div>
+								</div>
+							</div>
+							<div class="stat-box__money--positive">
+								<div class="row stat-box__money-row">
+									<div
+										class="col-lg-3 col-12 stat-box__money-value"
+									>
+										+ 30 zł
+									</div>
+									<div
+										class="col-lg-9 col-12 stat-box__money-description"
+									>
+										Paznkocie
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</statistic-box>
 			</div>
 			<div class="col-12 statics__third">
 				<statistic-box title="Podsumowanie miesiąca">
+					<div class="col-12 col-md-6 stat-box__chart-item">
+						<doughnut-chart
+							:chart-data="chartData"
+							:options="chartOptions"
+						/>
+					</div>
+					<div class="col-12 col-md-6 stat-box__chart-item">
+						<doughnut-chart
+							:chart-data="chartData"
+							:options="chartOptions"
+						/>
+					</div>
 					<!-- <div class="col-12 col-md-6 stat-box__chart-item">
 						<canvas id="myChart" width="200" height="200"></canvas>
+
 					</div>
 					<div class="col-12 col-md-6">
 						<canvas id="myChart2" width="200" height="200"></canvas>
@@ -57,9 +114,43 @@
 
 <script>
 import StatisticBox from '@/components/StatisticBox'
+import DoughnutChart from '@/components/DoughnutChart'
 export default {
 	components: {
 		StatisticBox,
+		DoughnutChart,
+	},
+	data() {
+		return {
+			labels: ['test', 'test2', 'test3', 'test4'],
+			backgroundColors: ['#ff1744', '#ff1744', '#ff1744', '#ff1744'],
+			dataChart: [45, 20, 120, 4],
+			chartData: {
+				labels: ['test', 'test2', 'test3', 'test4'],
+				datasets: [
+					{
+						data: [45, 20, 120, 4],
+						backgroundColor: [
+							'#ff1744',
+							'#ff1744',
+							'#ff1744',
+							'#ff1744',
+						],
+						borderWidth: 4,
+						borderColor: '#1f1f1f',
+						hoverBorderColor: '#37474f',
+					},
+				],
+			},
+			chartOptions: {
+				legend: {
+					display: false,
+				},
+				cutoutPercentage: 60,
+				responsive: true,
+				maintainAspectRatio: false,
+			},
+		}
 	},
 }
 </script>
@@ -94,14 +185,29 @@ export default {
 }
 .stat-box__money {
 	font-family: 'mukta-light';
-	border-radius: 5px;
+	border-radius: 12px;
 	margin-top: 10px;
 	padding: 7px;
+	&-row {
+		padding: 0 15px;
+		color: $white;
+	}
+	&-value {
+		font-size: 16px;
+		text-align: center;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.275);
+		padding-bottom: 8px;
+		margin-bottom: 8px;
+		padding-top: 8px;
+		@include device-large {
+			text-align: center;
+			padding: 0;
+			margin: 0;
+			border: none;
+		}
+	}
 	&-border {
-		border: 1px solid rgba(22, 20, 20, 0.699);
-		border-radius: 4px;
 		padding: 6px 8px 16px 8px;
-		box-shadow: 0px 0px 6px gray;
 		margin-top: 12px;
 	}
 	&--negative {
@@ -126,6 +232,8 @@ export default {
 		margin-bottom: 16px;
 		padding-bottom: 16px;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.507);
+		position: relative;
+		max-height: 400px;
 	}
 }
 
@@ -140,6 +248,7 @@ export default {
 	scroll-snap-type: x mandatory;
 	@include device-large {
 		flex-wrap: wrap;
+		overflow: visible;
 	}
 	&--disabled {
 		opacity: 0.5;
@@ -161,8 +270,11 @@ export default {
 		display: flex;
 		flex-direction: column;
 		scroll-snap-align: start;
+		display: none;
+		height: 100%;
 		@include device-large {
 			margin-top: 24px;
+			display: block;
 		}
 	}
 	&--without-margin {
@@ -180,7 +292,7 @@ export default {
 			margin-top: 0;
 		}
 		&__third {
-			margin-top: 64px;
+			margin-top: 24px;
 		}
 	}
 	@include device-large {

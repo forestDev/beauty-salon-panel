@@ -30,6 +30,7 @@ export default {}
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	margin-top: 24px;
 
 	&__button {
 		display: flex;

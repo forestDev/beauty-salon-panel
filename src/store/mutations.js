@@ -1,1 +1,5 @@
-export default {};
+export default {
+    setIsModal(state, isModal) {
+        state.isModal = isModal
+    }
+};

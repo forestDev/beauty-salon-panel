@@ -1,12 +1,17 @@
 <template>
-	<div class="row header">
+	<div class="header" :class="{ 'header--transparent': isModal }">
 		<div class="col-2 col-md-1">
 			<div class="header__icon" @click="isMenu = !isMenu">
 				<i class="fas fa-bars" />
 			</div>
 		</div>
-		<div class="col-6 col-md-8 header__logo">TRENDY</div>
-		<div class="header__date col-4 col-md-3" id="timer">
+		<div class="header__logo">
+			<img
+				class="header__logo-img"
+				src="@/assets/images/beautySalonLogo.svg"
+			/>
+		</div>
+		<div class="header__date" id="timer">
 			{{ time }}
 		</div>
 		<transition name="slide">
@@ -25,6 +30,7 @@
 <script>
 import moment from 'moment'
 import BaseMenu from '@/components/BaseMenu'
+import { mapGetters } from 'vuex'
 export default {
 	data() {
 		return {
@@ -35,6 +41,9 @@ export default {
 	},
 	components: {
 		BaseMenu,
+	},
+	computed: {
+		...mapGetters(['isModal']),
 	},
 	methods: {
 		setTime() {
@@ -55,13 +64,18 @@ export default {
 
 <style scoped lang='scss'>
 .header {
-	background-color: $black;
+	background-color: #242424;
 	padding-top: 10px;
 	height: 70px;
 	box-sizing: border-box;
 	position: sticky;
 	top: 0;
+	display: flex;
+	justify-content: space-between;
 	z-index: 999;
+	&--transparent {
+		opacity: 0;
+	}
 	&__icon {
 		display: flex;
 		font-size: 32px;
@@ -71,7 +85,6 @@ export default {
 		cursor: pointer;
 	}
 	&__logo {
-		background-color: black;
 		display: flex;
 		font-size: 40px;
 		color: $white;
@@ -83,15 +96,19 @@ export default {
 		@include device-small {
 			font-size: 25px;
 		}
+		&-img {
+			width: 100%;
+			height: 100%;
+		}
 	}
 	&__date {
 		display: flex;
-		background-color: $black;
 		font-size: 22px;
 		text-align: center;
 		align-items: center;
 		justify-content: center;
 		font-family: 'mukta-light';
+		margin-right: 20px;
 		@include device-small {
 			font-size: 20px;
 		}

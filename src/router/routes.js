@@ -3,9 +3,9 @@ import MainPage from '@/views/MainPage'
 import Finance from '@/views/Finance'
 import Clients from '@/views/Clients'
 import FinanceContent from '@/components/FinanceContent'
-import FinanceExpenses from '@/components/FinanceExpenses'
 import FinanceSummary from '@/components/FinanceSummary'
 import Treatments from '@/views/Treatments'
+import CalendarPage from '@/views/CalendarPage'
 const routes = [
 	{
 		path: '/auth',
@@ -34,12 +34,7 @@ const routes = [
 				component: FinanceSummary,
 				alias: '/podsumowanie',
 			},
-			// {
-			// 	path: '/finance-expenses',
-			// 	name: 'financeExpenses',
-			// 	component: FinanceExpenses,
-			// 	alias: '/wydatki',
-			// },
+			
 		],
 	},
 	{
@@ -57,7 +52,13 @@ const routes = [
 		path: '/clients',
 		name: 'Clients',
 		component: Clients,
-		alias: '/baza klientów'
+		alias: '/baza-klientów'
+	},
+	{
+		path: '/calendar',
+		name: "calendar",
+		component: CalendarPage,
+		alias: '/terminarz'
 	}
 	
 ]

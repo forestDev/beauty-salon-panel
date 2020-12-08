@@ -8,7 +8,7 @@
 						<img
 							src="@/assets/images/M_logo_trendy_kosmetyka.png"
 							alt="logo"
-							class="login-form__img-img"
+							class="login-form__image-img"
 						/>
 					</div>
 					<div class="login-form__inputs col-12 col-md-6">

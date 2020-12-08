@@ -12,6 +12,7 @@
 			class="menu__btn"
 			isMenu
 			icon-class="menu__btn-icon fas fa-calendar-alt"
+			@click="$router.push('/terminarz'), $emit('click')"
 			>Terminarz</base-button
 		>
 		<base-button
@@ -25,6 +26,7 @@
 			class="menu__btn"
 			isMenu
 			icon-class="menu__btn-icon fas fa-users"
+			@click="$router.push('/baza-klientów'), $emit('click')"
 			>Klienci</base-button
 		>
 		<base-button

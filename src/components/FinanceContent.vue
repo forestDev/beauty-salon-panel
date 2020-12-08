@@ -16,13 +16,12 @@
 				@edit="editHandler($event)"
 				@delete="deleteHandler($event)"
 			/>
-
+		</div>
+		<div class="col-12">
 			<div class="row finance__summary">
 				<div class="o col-6 finance__summary-results">Podsumowanie</div>
 				<div class="o col-5 finance__summary-money">900 PLN</div>
 			</div>
-		</div>
-		<div class="col-12">
 			<div class="row controls">
 				<div class="col-md-3 col-12">
 					<base-button is-secondary @click="isAddFinance = true"
@@ -34,74 +33,106 @@
 						@click="isEditing = !isEditing"
 						is-secondary
 						class="controls__edit"
-						>Edytuj</base-button
+						>{{ isEditing ? 'Anuluj' : 'Edytuj' }}</base-button
 					>
 				</div>
 			</div>
 		</div>
-		<div class="popup" v-if="isAddFinance">
-			<div class="popup-finance">
-				<div class="finance-box">
-					<div class="row">
-						<div class="col-12">
-							<h4>Wprowadz wydatet/przychód</h4>
-						</div>
-					</div>
-					<div class="row mat16">
-						<div class="col-4 finance-box__prize">Kwota</div>
-						<div class="col-8 finance-box__input">
-							<input type="text" />
-						</div>
-					</div>
-					<div class="row mat16">
-						<div class="col-4 finance-box__date">data</div>
-						<div class="col-8 finance-box__input">
-							<input type="date" />
-						</div>
-					</div>
-					<div class="row mat16">
-						<div class="col-4 finance-box__description">opis</div>
-						<div class="col-8 finance-box__input">
-							<textarea
-								name=""
-								id=""
-								cols="30"
-								rows="4"
-							></textarea>
-						</div>
-					</div>
-					<div class="row mat16">
-						<div class="col-6">
-							<base-button @click="isAddFinance = false"
-								>Anuluj
-							</base-button>
-						</div>
-						<div class="col-6">
-							<base-button @click="isAddFinance = false"
-								>Potwierdz
-							</base-button>
-						</div>
+
+		<base-popup v-if="isAddFinance">
+			<h4 slot="header">
+				Dodaj {{ isExpense ? 'wydatek' : 'przychód' }}
+			</h4>
+			<template slot="content">
+				<div class="row mat16">
+					<div class="col-4">Rodzaj</div>
+					<div class="col-8">
+						<div class="finance-box__switch"></div>
+						<toggle-button
+							:color="{
+								checked: '#b32217',
+								unchecked: '#266842',
+							}"
+							v-model="isExpense"
+							switch-color="#ffffff"
+							:sync="true"
+							:width="100"
+							:height="30"
+							:labels="{
+								checked: 'Wydatek',
+								unchecked: 'Przychód',
+							}"
+						/>
 					</div>
 				</div>
-			</div>
-		</div>
+				<div class="row mat16">
+					<div class="col-4 finance-box__prize">
+						{{ isExpense ? 'Wydatek' : 'Przychód' }}
+					</div>
+					<div class="col-8 finance-box__input">
+						<input
+							class="finance-box__input-target"
+							type="text"
+							placeholder="Kwota"
+						/>
+					</div>
+				</div>
+				<div class="row mat16">
+					<div class="col-4 finance-box__date">data</div>
+					<div class="col-8 finance-box__input">
+						<input class="finance-box__input-target" type="date" />
+					</div>
+				</div>
+				<div class="row mat16">
+					<div class="col-4 finance-box__description">opis</div>
+					<div class="col-8 finance-box__input">
+						<textarea
+							class="finance-box__input-target"
+							name=""
+							id=""
+							cols="30"
+							rows="4"
+						></textarea>
+					</div>
+				</div>
+				<div class="row mat16">
+					<div class="col-6">
+						<base-button
+							class="finance-box__btn finance-box__btn--negative"
+							@click="isAddFinance = false"
+							>Anuluj
+						</base-button>
+					</div>
+					<div class="col-6">
+						<base-button
+							class="finance-box__btn finance-box__btn--positive"
+							@click="isAddFinance = false"
+							>Potwierdz
+						</base-button>
+					</div>
+				</div>
+			</template>
+		</base-popup>
 	</div>
 </template>
 
 <script>
 import FinanceItem from '@/components/FinanceItem'
 import BaseButton from '@/components/BaseButton'
+import BasePopup from '@/components/BasePopup'
 // for test.
 import moment from 'moment'
 export default {
 	components: {
 		FinanceItem,
 		BaseButton,
+		BasePopup,
 	},
 	data() {
 		return {
 			isEditing: false,
 			isAddFinance: false,
+			isExpense: true,
 			// from api.
 			costs: [
 				{
@@ -261,16 +292,36 @@ export default {
 	position: fixed;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	border: 1px solid white;
+	border-radius: 8px;
+	background-color: #161616;
 	max-width: 320px;
 	@media (min-width: 460px) {
 		max-width: unset;
 	}
 }
 .finance-box {
-	height: 50%;
-	background-color: grey;
-	border-radius: 16px;
-	padding: 24px;
+	&__btn {
+		background-color: $black;
+		padding: 4px;
+		&--positive {
+			color: $green;
+			border: 1px solid $green;
+		}
+
+		&--negative {
+			color: $red;
+			border: 1px solid $red;
+		}
+	}
+	&__input-target {
+		border: 0;
+		outline: none;
+		background-color: #161616;
+		color: $white;
+		border-bottom: 1px solid #494949;
+		resize: none;
+	}
 }
 
 .finance-box__input {
