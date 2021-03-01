@@ -2,7 +2,7 @@
 	<div>
 		<div class="row">
 			<div class="col-12">
-				<h1>Cennik:</h1>
+				<h1>Moje usługi:</h1>
 			</div>
 		</div>
 		<div class="row treatments">

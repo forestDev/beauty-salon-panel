@@ -1,7 +1,7 @@
 <template>
 	<div
-		class="row finance-item"
-		:class="{ 'finance-item--negative': isNegative }"
+		class="row finance-item finance-item--colororgreen"
+		:class="{ 'finance-item--negative finance-item--colorred': isNegative }"
 	>
 		<div class="col-md-5" :class="[isEditing ? 'col-12' : 'col-4']">
 			<div class="row">
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div
-			class="col-md-7 finance-item__description"
+			class="col-md-7 finance-item__description "
 			:class="[isEditing ? 'col-12' : 'col-8']"
 		>
 			<p v-if="!isEditing">
@@ -152,13 +152,19 @@ export default {
 .finance-item {
 	margin-top: 10px;
 	position: relative;
-	background-color: $green;
+	background-color: $green3;
 	text-align: left;
 	font-size: 17px;
 	padding: 10px 0;
 	line-height: 1.6;
 	@include device-small {
 		padding: 15px 0;
+	}
+	&--colororgreen{
+		color: $green4;
+	}
+	&--colorred{
+		color: $red3;
 	}
 	&__prize {
 		align-items: center;
@@ -170,15 +176,19 @@ export default {
 		align-items: center;
 		display: flex;
 		font-weight: bold;
+		
 		&-edit {
 			margin-left: 5px;
 		}
+		
 	}
 	&__date {
 		display: flex;
 	}
 	&--negative {
-		background: $red;
+		background: $red2;
+		
+		
 	}
 	&__line {
 		border-top: 1px solid $white;

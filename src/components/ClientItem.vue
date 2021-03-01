@@ -65,6 +65,7 @@ export default {
 	overflow-y: auto;
 	border-radius: 5px;
 	box-shadow: 0 0 1.5em $black;
+	scrollbar-width: thin;
 	@include device-small {
 		margin-left: 30px;
 	}

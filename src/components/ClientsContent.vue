@@ -88,7 +88,7 @@ export default {
 <style scoped lang="scss">
 .clients {
 	display: flex;
-	background-color: #302d2d;
+	background-color: #1f1f1f;
 	border: 2px solid $black;
 	border-radius: 5px;
 	height: 600px;
