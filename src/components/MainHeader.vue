@@ -73,6 +73,7 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	z-index: 999;
+
 	&--transparent {
 		opacity: 0;
 	}
@@ -96,10 +97,13 @@ export default {
 		@include device-small {
 			font-size: 25px;
 		}
+	
 		&-img {
 			width: 100%;
 			height: 100%;
+			
 		}
+	
 	}
 	&__date {
 		display: flex;

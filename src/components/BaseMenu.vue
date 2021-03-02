@@ -74,7 +74,8 @@ export default {
 	z-index: 999;
 	width: 80%;
 	transition: all 0.6s;
-	background-color: rgb(23, 23, 31);
+	background-color: black;
+	// rgb(23, 23, 31);
 	border-bottom-right-radius: 5px;
 	border-top-right-radius: 5px;
 	padding: 15px;

@@ -48,11 +48,12 @@ export default {}
 		height: 40px;
 		cursor: pointer;
 		text-transform: uppercase;
-		background: #2b3135;
+		background: #1f1f1f;
 		font-family: 'mukta-light';
 		transition: ease-in-out 0.3s;
 		&--active {
-			background-color: lighten($color: #000000, $amount: 50%);
+		//	background-color: lighten($color: #000000, $amount: 30%);
+		// Wyłączyłem, ponieważ za duży kontrast się zrobił. Trzeba pomyśleć jak lepiej wyróżnić aktywną zakładkę
 		}
 		&:hover {
 			background: black;

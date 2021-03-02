@@ -256,8 +256,8 @@ export default {
 	&-item {
 		padding: 0 12px;
 		border: 1px solid grey;
-		border-radius: 8px;
-		box-shadow: 5px 5px 15px 5px #ffffff26;
+		border-radius: 0px;
+		//box-shadow: 5px 5px 15px 5px #ffffff26;
 		margin-top: 24px;
 		cursor: pointer;
 		user-select: none;

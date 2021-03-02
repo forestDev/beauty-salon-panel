@@ -5,11 +5,19 @@
 			<div class="col-12 col-md-12">
 				<div class="login-form row">
 					<div class="col-12 col-md-6 login-form__image">
-						<img
+					<div class="header__logo">
+			<img
+				class="header__logo-img login-img"
+				src="@/assets/images/beautySalonLogo.svg"
+			/>
+		</div>
+					<!--
+					<img
 							src="@/assets/images/M_logo_trendy_kosmetyka.png"
 							alt="logo"
 							class="login-form__image-img"
 						/>
+					-->	
 					</div>
 					<div class="login-form__inputs col-12 col-md-6">
 						<div class="row login-form__inputs-login">
@@ -95,9 +103,10 @@ export default {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	
 	&-form {
 		text-align: center;
-
+		background: #1f1f1f;
 		&__image {
 			display: flex;
 			object-fit: cover;
@@ -107,7 +116,7 @@ export default {
 			}
 		}
 		&__button {
-			margin: 0 15px;
+			margin: 0px 20px 20px 20px;
 		}
 		&__inputs {
 			display: flex;
@@ -117,7 +126,7 @@ export default {
 			padding-top: $grid-base * 2;
 			margin-top: 25px;
 			margin-bottom: 25px;
-
+			
 			&-login {
 				margin: 0 15px;
 			}
@@ -140,5 +149,12 @@ export default {
 		flex-direction: column;
 		align-content: center;
 	}
+}
+.login-img{
+width: 100%;
+margin-top:20px ;
+@include device-small{
+	width:90%;
+}
 }
 </style>
