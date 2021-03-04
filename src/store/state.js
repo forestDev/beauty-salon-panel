@@ -1,3 +1,5 @@
 export default {
-    isModal: false
-};
+	isModal: false,
+	// token defines user
+	user: '',
+}

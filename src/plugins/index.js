@@ -1,1 +1,2 @@
-import './switch';
+import './switch'
+import './vue-cookies'

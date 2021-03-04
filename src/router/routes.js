@@ -34,7 +34,6 @@ const routes = [
 				component: FinanceSummary,
 				alias: '/podsumowanie',
 			},
-			
 		],
 	},
 	{
@@ -52,15 +51,14 @@ const routes = [
 		path: '/clients',
 		name: 'Clients',
 		component: Clients,
-		alias: '/baza-klientów'
+		alias: '/baza-klientów',
 	},
 	{
 		path: '/calendar',
-		name: "calendar",
+		name: 'calendar',
 		component: CalendarPage,
-		alias: '/terminarz'
-	}
-	
+		alias: '/terminarz',
+	},
 ]
 
 export default routes

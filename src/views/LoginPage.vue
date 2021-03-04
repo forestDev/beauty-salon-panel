@@ -63,23 +63,22 @@ export default {
 		return {
 			username: '',
 			password: '',
-			token: '',
+			errors: null,
 		}
 	},
 	methods: {
 		...mapActions([LOGIN_USER, LOGOUT_USER]),
 
 		async loginUser() {
-			let token = await this.LOGIN_USER({
+			const errors = await this.LOGIN_USER({
 				username: this.username,
 				password: this.password,
 			})
-			// @todo
-			this.token = token
+			if (errors) {
+				this.errors = errors
+				return
+			}
 			this.$router.push({ name: 'mainPage' })
-		},
-		logout() {
-			this.LOGOUT_USER(this.token)
 		},
 	},
 }
