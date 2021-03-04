@@ -185,7 +185,7 @@ export default {
 	padding: 20px 0;
 }
 .finance {
-	background-color: rgb(48, 45, 45);
+	background-color: #1f1f1f;
 	border: 2px solid black;
 	border-radius: 5px;
 	height: 600px;
@@ -201,6 +201,7 @@ export default {
 		cursor: pointer;
 		&--active {
 			display: block;
+			color: #1f1f1f;
 		}
 	}
 	&__summary {

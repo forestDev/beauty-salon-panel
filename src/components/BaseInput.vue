@@ -41,9 +41,10 @@ export default {
 
 <style scoped lang="scss">
 .input {
-	background-color: $white;
-	border: none;
-	border-radius: $border-radius;
+//	background-color: $white;
+	background: none;
+	border: 1px solid #737373;
+	border-radius: $border-radius*5;
 	font-size: ($font-size-base)-2px;
 	line-height: $line-height-sm;
 	outline: none;
@@ -53,16 +54,16 @@ export default {
 	padding-left: 15px;
 	padding-right: 15px;
 	&::placeholder {
-		color: $black;
+		color: $white;
 	}
 
 	&::-moz-placeholder {
-		color: $black;
+		color: $white;
 		opacity: 0.25;
 	}
 
 	&:-ms-placeholder {
-		color: $black;
+		color: $white;
 	}
 	&--error {
 		border-radius: 6px !important;
@@ -92,5 +93,6 @@ export default {
 			color: $white;
 		}
 	}
+	
 }
 </style>

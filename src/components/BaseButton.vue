@@ -52,7 +52,7 @@ export default {
 	align-items: center;
 	font-size: $font-size-base;
 	line-height: $line-height-base;
-	padding: 15px 0;
+	padding: 12px 0;
 	text-align: center;
 	text-transform: uppercase;
 	cursor: pointer;
@@ -65,25 +65,27 @@ export default {
 		margin-left: 6px;
 	}
 	&--sign-in {
-		background-color: $green;
+		background-color: #338F2C;
 		color: $white;
 		transition: all 0.25s ease-in-out;
+		border-radius: 50px;
 
 		&:hover {
-			background-color: darken($green, 10%);
+			background-color: #315f2d;
 		}
 	}
 	//button--menu
 	&--menu {
 		border: 1px solid gray;
 		flex-direction: column-reverse;
-		background-image: linear-gradient(to top, #575050, #353131);
+		//background-image: linear-gradient(to top, #575050, #353131);
 		box-shadow: 0px 0px 5px #7b7b7b63;
 		transition: all 0.3s;
 		padding: 10px;
 		height: 70px;
 		max-height: 70px;
 		color: $white;
+		background-color: #1f1f1f;
 		&:hover {
 			opacity: 0.8;
 			box-shadow: 0px 0px 10px #7b7b7b;
